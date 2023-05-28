@@ -10,7 +10,7 @@ def tokenize(operaiones: str) -> list[str]:
     ret.append(operaiones[ultimo_index:])
     return ret
 
-def parser(operaiones: str, frac=None) -> list:
+def parser(operaiones: list[str], frac=None) -> list:
     ret = []
     for op in operaiones:
         match op:
