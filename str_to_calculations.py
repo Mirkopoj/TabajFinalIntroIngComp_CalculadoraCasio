@@ -1,5 +1,14 @@
 def tokenize(operaiones: str) -> list[str]:
-    return operaiones.split(' ')
+    ultimo_index = 0
+    ret = []
+    for i, car in enumerate(operaiones):
+        match car:
+            case '+' | '-' | '*' | '/' | '|' | '=':
+                ret.append(operaiones[ultimo_index:i])
+                ret.append(operaiones[i])
+                ultimo_index = i+1
+    ret.append(operaiones[ultimo_index:])
+    return ret
 
 def parser(operaiones: str, frac=None) -> list:
     ret = []
@@ -15,6 +24,8 @@ def parser(operaiones: str, frac=None) -> list:
                     ret.append(frac)
                 else:
                     raise (Exception("SintaxError"))
+            case '':
+                continue
             case _ :
                 try:
                     ret.append(int(op))
