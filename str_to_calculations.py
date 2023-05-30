@@ -1,18 +1,22 @@
-def tokenize(operaiones: str) -> list[str]:
+def tokenize(operaciones: str) -> list[str]:
     ultimo_index = 0
     ret = []
-    for i, car in enumerate(operaiones):
+    for i, car in enumerate(operaciones):
         match car:
             case '+' | '-' | '*' | '/' | '|' | '=':
-                ret.append(operaiones[ultimo_index:i])
-                ret.append(operaiones[i])
+                ret.append(operaciones[ultimo_index:i])
+                ret.append(operaciones[i])
                 ultimo_index = i+1
-    ret.append(operaiones[ultimo_index:])
+    ret.append(operaciones[ultimo_index:])
     return ret
 
-def parser(operaiones: list[str], frac=None) -> list:
+def parser(operaciones: list[str], frac=None) -> list:
     ret = []
-    for op in operaiones:
+    prev_frac = False
+    for i, op in enumerate(operaciones):
+        if prev_frac:
+            prev_frac = False
+            continue
         match op:
             case '=':
                 ret.append('=')
@@ -20,10 +24,17 @@ def parser(operaiones: list[str], frac=None) -> list:
             case '+' | '-' | '*' | '/':
                 ret.append(op)
             case '|':
-                if frac != None:
-                    ret.append(frac)
-                else:
+                if frac == None:
                     raise (Exception("SintaxError"))
+                if i+1>=len(operaciones):
+                    ret.append(op)
+                    continue
+                next = operaciones[i+1]
+                if next == '':
+                    ret.append(op)
+                    continue
+                ret.append(frac(ret.pop(), int(next)))
+                prev_frac = True
             case '':
                 continue
             case _ :
@@ -38,7 +49,7 @@ def calc(parsed_ops: list, suma, resta, mult, div):
         i = len(parsed_ops)-i-1
         match op:
             case '=':
-                print(calc(parsed_ops[:i], suma, resta, mult, div), calc(parsed_ops[(i+1):], suma, resta, mult, div))
+                print(calc(parsed_ops[:i], suma, resta, mult, div))
                 return ' '
             case '/':
                 return div(calc(parsed_ops[:i], suma, resta, mult, div), calc(parsed_ops[(i+1):], suma, resta, mult, div))

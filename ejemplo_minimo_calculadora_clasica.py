@@ -12,16 +12,20 @@ def mul(a,b):
 def div(a,b):
     return a/b
 
+def fracion(a,b):
+    return a**b
+
 comp = ""
-while True:
+aux = 'a'
+while aux != ' ':
     comp += input(comp)
+    #comp = "3|"
     aux = stc.tokenize(comp)
     try:
-        aux = stc.parser(aux)
+        aux = stc.parser(aux, frac=fracion)
     except:
         print("SintaxError")
         comp = ""
         continue
-    aux = stc.calc(aux, add, sub, mul, div)
-    if aux == ' ':
-        comp = ""
+    if len(aux)%2 == 1:
+        aux = stc.calc(aux, add, sub, mul, div)
