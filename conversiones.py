@@ -109,27 +109,8 @@ def lista_reversa(lista:list) -> list:
 def lista_a_str(lista: list) -> str:
     ret = ""
     for n in lista:
-        match n:
-            case 0:
-                ret += '0'
-            case 1:
-                ret += '1'
-            case 2:
-                ret += '2'
-            case 3:
-                ret += '3'
-            case 4:
-                ret += '4'
-            case 5:
-                ret += '5'
-            case 6:
-                ret += '6'
-            case 7:
-                ret += '7'
-            case 8:
-                ret += '8'
-            case 9:
-                ret += '9'
-            case _:
+        if type(n) == int: 
+            ret += str(n)
+        else:
                 ret += n
     return ret
