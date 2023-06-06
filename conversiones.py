@@ -22,7 +22,7 @@ def conversiones(expresion):
             resultado = octal(num)
             band = False
         else:
-            print("Ingrese un numero valido")
+            print("Ingrese un número válido")
     return resultado
 
 #--------------------- BINARIO ---------------------------------------------------------
