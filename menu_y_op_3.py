@@ -1,4 +1,6 @@
 import conversiones as con
+import str_to_calculations as stc
+import funciones as fn
 
 # considerar usar el clear para la calculadora
 calc_On = True
@@ -24,12 +26,33 @@ while calc_On == True:
 
     select = int(input("\n_"))
 
-    if select == 1:
-        print(" pasan cosas")
-    elif select == 2: 
-        print("pasan cosas 2")
-    elif select == 3: 
+    if select == 1 or select == 2: 
+        suma = fn.suma_clasica
+        resta = fn.resta_clasica
+        multiplicacion = fn.multiplicacion_clasica
+        division = fn.division_clasica
+        fracion = None
+        if select == 2:
+            suma = fn.suma_fraccionaria
+            resta = fn.resta_fraccionaria
+            multiplicacion = fn.multiplicacion_fraccionaria
+            division = fn.division_fraccionaria
+            fracion = fn.hacer_fraccion
+        comp = ""
+        aux = 'a'
+        while aux != ' ':
+            comp += input(comp)
+            aux = stc.tokenize(comp)
+            try:
+                aux = stc.parser(aux, frac=fracion)
+            except:
+                print("SintaxError")
+                comp = ""
+                continue
+            if len(aux)%2 == 1:
+                aux = stc.calc(aux, suma, resta, multiplicacion, division)
 
+    elif select == 3: 
         print("Ingrese expresión: ") 
         expresion = int(input("\n_"))
         #valida que sea una opcion valida
