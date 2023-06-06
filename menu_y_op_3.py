@@ -27,8 +27,7 @@ while calc_On == True:
 
     select = int(input("\n_"))
 
-    if select == 1 or select == 2: 
-        print("Usted ha ingresado a la calculadora clásica, ingrese la expresión: ") 
+    if select == 1 or select == 2:    
         suma = fn.suma_clasica
         resta = fn.resta_clasica
         multiplicacion = fn.multiplicacion_clasica
@@ -43,6 +42,8 @@ while calc_On == True:
             division = fn.division_fraccionaria
             fraccion = fn.hacer_fraccion
             simplificar = sm.simplify
+        else:
+            print("Usted ha ingresado a la calculadora clásica, ingrese la expresión: ") 
         comp = ""
         aux = 'a'
         while aux != ' ':
