@@ -21,6 +21,7 @@ def parser(operaciones: list[str], frac=None) -> list:
             case '=':
                 ret.append('=')
                 ret.append(' ')
+                return ret
             case '+' | '-' | '*' | '/':
                 ret.append(op)
             case '|':
