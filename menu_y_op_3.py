@@ -56,7 +56,12 @@ while calc_On == True:
                 comp = ""
                 continue
             if len(aux)%2 == 1:
-                aux = stc.calc(aux, suma, resta, multiplicacion, division, simplificar)
+                try:
+                    aux = stc.calc(aux, suma, resta, multiplicacion, division, simplificar)
+                except:
+                    print("MathError")
+                    comp = ""
+                    continue
 
     elif select == 3: 
         print("Usted ha ingresado a la calculadora de conversiones, ingrese la expresión: ") 
