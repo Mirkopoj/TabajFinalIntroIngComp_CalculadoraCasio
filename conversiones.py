@@ -31,7 +31,7 @@ def binario(num):
     aux = 2
     lista=[]
 
-    while aux > 1:
+    while aux >= 1:
         aux = actual / 2
         lista.append(int(actual % 2))
         actual = aux
