@@ -1,6 +1,7 @@
 import conversiones as con
 import str_to_calculations as stc
 import funciones as fn
+import simplifica2 as sm
 
 # considerar usar el clear para la calculadora
 calc_On = True
@@ -32,12 +33,14 @@ while calc_On == True:
         multiplicacion = fn.multiplicacion_clasica
         division = fn.division_clasica
         fraccion = None
+        simplificar = None
         if select == 2:
             suma = fn.suma_fraccionaria
             resta = fn.resta_fraccionaria
             multiplicacion = fn.multiplicacion_fraccionaria
             division = fn.division_fraccionaria
             fraccion = fn.hacer_fraccion
+            simplificar = sm.simplify
         comp = ""
         aux = 'a'
         while aux != ' ':
@@ -50,7 +53,7 @@ while calc_On == True:
                 comp = ""
                 continue
             if len(aux)%2 == 1:
-                aux = stc.calc(aux, suma, resta, multiplicacion, division)
+                aux = stc.calc(aux, suma, resta, multiplicacion, division, simplificar)
 
     elif select == 3: 
         print("Ingrese expresión: ") 

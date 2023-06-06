@@ -44,12 +44,17 @@ def parser(operaciones: list[str], frac=None) -> list:
                     raise (Exception("SintaxError"))
     return ret
 
-def calc(parsed_ops: list, suma, resta, mult, div):
+def calc(parsed_ops: list, suma, resta, mult, div, simply=None):
     for i, op in enumerate(reversed(parsed_ops)):
         i = len(parsed_ops)-i-1
         match op:
             case '=':
-                print(calc(parsed_ops[:i], suma, resta, mult, div))
+                res = calc(parsed_ops[:i], suma, resta, mult, div)
+                if simply != None:
+                    res = simply(res)
+                    print(res[0], "|", res[1])
+                else:
+                    print(res)
                 return ' '
             case '/':
                 return div(calc(parsed_ops[:i], suma, resta, mult, div), calc(parsed_ops[(i+1):], suma, resta, mult, div))
