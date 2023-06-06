@@ -10,7 +10,7 @@ boton = 1
 #--------------------- MENU -----------------------------------------------------------
 #                                    8b    d8  888888  88b 88  88   88 
 #                                    88b  d88  88__    88Yb88  88   88 
-#                                    88YbdP88  88""    88 Y88  Y8   8P 
+#                                    88YbdP88  88""    88 Y88  Y8   8P   
 #                                    88 YY 88  888888  88  Y8  `YbodP' 
 
 while boton != 0:
@@ -31,20 +31,20 @@ while calc_On == True:
         resta = fn.resta_clasica
         multiplicacion = fn.multiplicacion_clasica
         division = fn.division_clasica
-        fracion = None
+        fraccion = None
         if select == 2:
             suma = fn.suma_fraccionaria
             resta = fn.resta_fraccionaria
             multiplicacion = fn.multiplicacion_fraccionaria
             division = fn.division_fraccionaria
-            fracion = fn.hacer_fraccion
+            fraccion = fn.hacer_fraccion
         comp = ""
         aux = 'a'
         while aux != ' ':
             comp += input(comp)
             aux = stc.tokenize(comp)
             try:
-                aux = stc.parser(aux, frac=fracion)
+                aux = stc.parser(aux, frac=fraccion)
             except:
                 print("SintaxError")
                 comp = ""
