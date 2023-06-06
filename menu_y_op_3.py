@@ -1,4 +1,4 @@
-# considerar usar el clar para la calculadora
+# considerar usar el clear para la calculadora
 calc_On = True
 expresion = 0
 boton = 1
@@ -11,9 +11,9 @@ def conversiones(expresion):
     band = True
 
     while band == True:
-        print("\n1- binario")
-        print("2- hexadecimal")
-        print("3- octal")
+        print("\n1- Binario")
+        print("2- Hexadecimal")
+        print("3- Octal")
 
         opcion = int(input("\n_"))
 
@@ -27,7 +27,7 @@ def conversiones(expresion):
             resultado = octal(num)
             band = False
         else:
-            print("ingrese un numero valido")
+            print("Ingrese un numero valido")
     return resultado
 
 #--------------------- BINARIO ---------------------------------------------------------
@@ -74,7 +74,7 @@ def hexadecimal(num):
         j=0 # resetea el for 
     lista_H = lista_reversa(lista_H)
     return lista_H
-#--------------------- OTCAL -------------------------------------------------------
+#--------------------- OCTAL -------------------------------------------------------
 def octal(num):
     band_o = True
     resultado = [] #lista vacia
@@ -122,10 +122,10 @@ while boton != 0:
 
 while calc_On == True:
     print("Menu: ")
-    print("1- calculadora clasica")
-    print("2- calculadora fraccionaria")
-    print("3- calculadora de converciones") 
-    print("4- apagar calculadora")
+    print("1- Calculadora clásica")
+    print("2- Calculadora fraccionaria")
+    print("3- Calculadora de conversiones") 
+    print("4- Apagar calculadora")
 
     select = int(input("\n_"))
 
@@ -135,19 +135,19 @@ while calc_On == True:
         print("pasan cosas 2")
     elif select == 3: 
 
-        print("ingrese expresion: ") 
+        print("Ingrese expresión: ") 
         expresion = int(input("\n_"))
         #valida que sea una opcion valida
         while expresion < 0 or expresion > 9999:
-            print("\ningrese un numero valido ")
+            print("\nIngrese un numero valido ")
             expresion = int(input("\n_"))
 
         lista_convertido = conversiones(expresion)
-        print(f"conversion: {lista_convertido} ")
+        print(f"Conversión: {lista_convertido} ")
 
     elif select == 4:
         calc_On = False
-        print("\n\napagando...")
+        print("\n\nApagando...")
     else:
-        print("error ingrese una opccion valida")
+        print("Error ingrese una opción válida")
     
