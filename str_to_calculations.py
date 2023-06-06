@@ -22,6 +22,8 @@ def parser(operaciones: list[str], frac=None) -> list:
             continue
         match op:
             case '=':
+                if type(ret[-1]) != type_check:
+                    raise (Exception("SintaxError"))
                 ret.append('=')
                 ret.append(' ')
                 return ret
