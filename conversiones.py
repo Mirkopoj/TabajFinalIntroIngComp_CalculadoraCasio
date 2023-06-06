@@ -1,8 +1,8 @@
 #--------------------- CONVERSIONES --------------------------------------------------
-def conversiones(expresion):
+def conversiones(expresion: int) -> str:
     num = expresion
     opcion = 0
-    resultado = 0
+    resultado = []
     band = True
 
     while band == True:
@@ -23,10 +23,10 @@ def conversiones(expresion):
             band = False
         else:
             print("Ingrese un número válido")
-    return resultado
+    return lista_a_str(resultado)
 
 #--------------------- BINARIO ---------------------------------------------------------
-def binario(num): 
+def binario(num) -> list: 
     actual = num
     aux = 2
     lista=[]
@@ -38,7 +38,7 @@ def binario(num):
     lista = lista_reversa(lista) 
     return lista
 #--------------------- HEXADECIMAL --------------------------------------------------
-def hexadecimal(num):
+def hexadecimal(num) -> list:
     band_H = True
     lista_H=[]
     siguiente_num = 0
@@ -70,7 +70,7 @@ def hexadecimal(num):
     lista_H = lista_reversa(lista_H)
     return lista_H
 #--------------------- OCTAL -------------------------------------------------------
-def octal(num):
+def octal(num) -> list:
     band_o = True
     resultado = [] #lista vacia
     siguiente_num = 0
@@ -96,12 +96,40 @@ def octal(num):
     return resultado
 
 #--------------------- LISTA_REVERSA -----------------------------------------------
-def lista_reversa(lista):
+def lista_reversa(lista:list) -> list:
     a = len(lista)
     lista_R = []
-    for i in range(len(lista)):
+    for _ in range(len(lista)):
         a -= 1
         b = lista[a]
         lista_R.append(b)
     return lista_R
 
+#--------------------- PRETY_PRINT -----------------------------------------------
+def lista_a_str(lista: list) -> str:
+    ret = ""
+    for n in lista:
+        match n:
+            case 0:
+                ret += '0'
+            case 1:
+                ret += '1'
+            case 2:
+                ret += '2'
+            case 3:
+                ret += '3'
+            case 4:
+                ret += '4'
+            case 5:
+                ret += '5'
+            case 6:
+                ret += '6'
+            case 7:
+                ret += '7'
+            case 8:
+                ret += '8'
+            case 9:
+                ret += '9'
+            case _:
+                ret += n
+    return ret
