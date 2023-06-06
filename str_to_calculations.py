@@ -13,6 +13,9 @@ def tokenize(operaciones: str) -> list[str]:
 def parser(operaciones: list[str], frac=None) -> list:
     ret = []
     prev_frac = False
+    type_check = int
+    if frac != None:
+        type_check = tuple
     for i, op in enumerate(operaciones):
         if prev_frac:
             prev_frac = False
@@ -23,6 +26,8 @@ def parser(operaciones: list[str], frac=None) -> list:
                 ret.append(' ')
                 return ret
             case '+' | '-' | '*' | '/':
+                if type(ret[-1]) != type_check:
+                    raise (Exception("SintaxError"))
                 ret.append(op)
             case '|':
                 if frac == None:
@@ -39,10 +44,7 @@ def parser(operaciones: list[str], frac=None) -> list:
             case '':
                 continue
             case _ :
-                try:
-                    ret.append(int(op))
-                except:
-                    raise (Exception("SintaxError"))
+                ret.append(int(op))
     return ret
 
 def calc(parsed_ops: list, suma, resta, mult, div, simply=None):

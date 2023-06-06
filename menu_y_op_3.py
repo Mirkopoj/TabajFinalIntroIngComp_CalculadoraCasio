@@ -55,7 +55,7 @@ while calc_On == True:
                 print("SintaxError")
                 comp = ""
                 continue
-            if len(aux)%2 == 1:
+            if len(aux)>2 and aux[-2] == '=':
                 try:
                     aux = stc.calc(aux, suma, resta, multiplicacion, division, simplificar)
                 except:
