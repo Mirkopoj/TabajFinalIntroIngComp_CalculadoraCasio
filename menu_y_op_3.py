@@ -28,6 +28,7 @@ while calc_On == True:
     select = int(input("\n_"))
 
     if select == 1 or select == 2: 
+        print("Usted ha ingresado a la calculadora clásica, ingrese la expresión: ") 
         suma = fn.suma_clasica
         resta = fn.resta_clasica
         multiplicacion = fn.multiplicacion_clasica
@@ -35,6 +36,7 @@ while calc_On == True:
         fraccion = None
         simplificar = None
         if select == 2:
+            print("Usted se ha movido de la calculadora clásica a la fraccionaria, ingrese la expresión: ") 
             suma = fn.suma_fraccionaria
             resta = fn.resta_fraccionaria
             multiplicacion = fn.multiplicacion_fraccionaria
@@ -56,7 +58,7 @@ while calc_On == True:
                 aux = stc.calc(aux, suma, resta, multiplicacion, division, simplificar)
 
     elif select == 3: 
-        print("Ingrese expresión: ") 
+        print("Usted ha ingresado a la calculadora de conversiones, ingrese la expresión: ") 
         expresion = int(input("\n_"))
         #valida que sea una opcion valida
         while expresion < 0 or expresion > 9999:
