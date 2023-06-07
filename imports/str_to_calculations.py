@@ -81,14 +81,29 @@ def calc(parsed_ops: list, suma, resta, mult, div, simply=None):
                 operand_prety_printer(res, simply);
                 print('\n')
                 return ' '
-            case '/':
-                return div(calc(parsed_ops[:i], suma, resta, mult, div), calc(parsed_ops[(i+1):], suma, resta, mult, div))
-            case '*':
-                return mult(calc(parsed_ops[:i], suma, resta, mult, div), calc(parsed_ops[(i+1):], suma, resta, mult, div))
+    for i, op in enumerate(reversed(parsed_ops)):
+        i = len(parsed_ops)-i-1
+        match op:
             case '+':
                 return suma(calc(parsed_ops[:i], suma, resta, mult, div), calc(parsed_ops[(i+1):], suma, resta, mult, div))
+    for i, op in enumerate(reversed(parsed_ops)):
+        i = len(parsed_ops)-i-1
+        match op:
             case '-':
                 return resta(calc(parsed_ops[:i], suma, resta, mult, div), calc(parsed_ops[(i+1):], suma, resta, mult, div))
+    for i, op in enumerate(reversed(parsed_ops)):
+        i = len(parsed_ops)-i-1
+        match op:
+            case '/':
+                return div(calc(parsed_ops[:i], suma, resta, mult, div), calc(parsed_ops[(i+1):], suma, resta, mult, div))
+    for i, op in enumerate(reversed(parsed_ops)):
+        i = len(parsed_ops)-i-1
+        match op:
+            case '*':
+                return mult(calc(parsed_ops[:i], suma, resta, mult, div), calc(parsed_ops[(i+1):], suma, resta, mult, div))
+    for i, op in enumerate(reversed(parsed_ops)):
+        i = len(parsed_ops)-i-1
+        match op:
             case _ :
                 if len(parsed_ops) == 1:
                     return op
