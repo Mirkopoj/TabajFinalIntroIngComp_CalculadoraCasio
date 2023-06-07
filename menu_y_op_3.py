@@ -13,9 +13,9 @@ boton = 1
 #                                    88YbdP88  88""    88 Y88  Y8   8P   
 #                                    88 YY 88  888888  88  Y8  `YbodP' 
 
-while boton != 0:
+while boton != '0':
     print(" 0 -> ON ")
-    boton = int(input("\n_"))
+    boton = str(input("\n_"))
 
 while calc_On == True:
     print("Menu: ")
