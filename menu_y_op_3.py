@@ -1,6 +1,7 @@
 import conversiones as con
 import str_to_calculations as stc
 import funciones as fn
+import simplifica2 as sm
 
 # considerar usar el clear para la calculadora
 calc_On = True
@@ -26,18 +27,23 @@ while calc_On == True:
 
     select = int(input("\n_"))
 
-    if select == 1 or select == 2: 
+    if select == 1 or select == 2:    
         suma = fn.suma_clasica
         resta = fn.resta_clasica
         multiplicacion = fn.multiplicacion_clasica
         division = fn.division_clasica
         fraccion = None
+        simplificar = None
         if select == 2:
+            print("Usted se ha movido de la calculadora clásica a la fraccionaria, ingrese la expresión: ") 
             suma = fn.suma_fraccionaria
             resta = fn.resta_fraccionaria
             multiplicacion = fn.multiplicacion_fraccionaria
             division = fn.division_fraccionaria
             fraccion = fn.hacer_fraccion
+            simplificar = sm.simplify
+        else:
+            print("Usted ha ingresado a la calculadora clásica, ingrese la expresión: ") 
         comp = ""
         aux = 'a'
         while aux != ' ':
@@ -49,11 +55,16 @@ while calc_On == True:
                 print("SintaxError")
                 comp = ""
                 continue
-            if len(aux)%2 == 1:
-                aux = stc.calc(aux, suma, resta, multiplicacion, division)
+            if len(aux)>2 and aux[-2] == '=':
+                try:
+                    aux = stc.calc(aux, suma, resta, multiplicacion, division, simplificar)
+                except:
+                    print("MathError")
+                    comp = ""
+                    continue
 
     elif select == 3: 
-        print("Ingrese expresión: ") 
+        print("Usted ha ingresado a la calculadora de conversiones, ingrese la expresión: ") 
         expresion = int(input("\n_"))
         #valida que sea una opcion valida
         while expresion < 0 or expresion > 9999:

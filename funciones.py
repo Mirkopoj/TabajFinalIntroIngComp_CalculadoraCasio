@@ -29,7 +29,7 @@ def multiplicacion_fraccionaria(a: int,b: int) -> tuple[int,int]:
     return (ret_den, ret_num)
 
 def division_fraccionaria(a: int,b: int) -> tuple[int,int]:
-    ret_num = a[0]*b[0]
-    ret_den = a[1]*b[1]
+    ret_num = a[0]*b[1]
+    ret_den = a[1]*b[0]
     return (ret_den, ret_num)
 

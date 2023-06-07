@@ -13,15 +13,23 @@ def tokenize(operaciones: str) -> list[str]:
 def parser(operaciones: list[str], frac=None) -> list:
     ret = []
     prev_frac = False
+    type_check = int
+    if frac != None:
+        type_check = tuple
     for i, op in enumerate(operaciones):
         if prev_frac:
             prev_frac = False
             continue
         match op:
             case '=':
+                if type(ret[-1]) != type_check:
+                    raise (Exception("SintaxError"))
                 ret.append('=')
                 ret.append(' ')
+                return ret
             case '+' | '-' | '*' | '/':
+                if type(ret[-1]) != type_check:
+                    raise (Exception("SintaxError"))
                 ret.append(op)
             case '|':
                 if frac == None:
@@ -38,18 +46,20 @@ def parser(operaciones: list[str], frac=None) -> list:
             case '':
                 continue
             case _ :
-                try:
-                    ret.append(int(op))
-                except:
-                    raise (Exception("SintaxError"))
+                ret.append(int(op))
     return ret
 
-def calc(parsed_ops: list, suma, resta, mult, div):
+def calc(parsed_ops: list, suma, resta, mult, div, simply=None):
     for i, op in enumerate(reversed(parsed_ops)):
         i = len(parsed_ops)-i-1
         match op:
             case '=':
-                print(calc(parsed_ops[:i], suma, resta, mult, div))
+                res = calc(parsed_ops[:i], suma, resta, mult, div)
+                if simply != None:
+                    res = simply(res)
+                    print(res[0], "|", res[1])
+                else:
+                    print(res)
                 return ' '
             case '/':
                 return div(calc(parsed_ops[:i], suma, resta, mult, div), calc(parsed_ops[(i+1):], suma, resta, mult, div))
