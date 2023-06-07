@@ -30,16 +30,16 @@ def run():
         print("3- Calculadora de conversiones") 
         print("4- Apagar calculadora")
 
-        select = int(input("\n_"))
+        select = input("\n_")
 
-        if select == 1 or select == 2:    
+        if select == '1' or select == '2':    
             suma = fn.suma_clasica
             resta = fn.resta_clasica
             multiplicacion = fn.multiplicacion_clasica
             division = fn.division_clasica
             fraccion = None
             simplificar = None
-            if select == 2:
+            if select == '2':
                 print("Usted se ha movido de la calculadora clásica a la fraccionaria, ingrese la expresión: ") 
                 suma = fn.suma_fraccionaria
                 resta = fn.resta_fraccionaria
@@ -68,7 +68,7 @@ def run():
                         comp = ""
                         continue
 
-        elif select == 3: 
+        elif select == '3': 
             print("Usted ha ingresado a la calculadora de conversiones, ingrese la expresión: ") 
             expresion = int(input("\n_"))
             #valida que sea una opcion valida
@@ -79,7 +79,7 @@ def run():
             lista_convertido = con.conversiones(expresion)
             print(f"Conversión: {lista_convertido} ")
 
-        elif select == 4:
+        elif select == '4':
             calc_On = False
             print("\n\nApagando...")
         else:
