@@ -1,3 +1,7 @@
+if __name__ == "__main__":
+    print("Este archivo es para incluir, no para ejecutar")
+    exit(-1)
+
 numerador = 2145
 divisor = 635
 bandera = True

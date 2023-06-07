@@ -1,3 +1,7 @@
+if __name__ == "__main__":
+    print("Este archivo es para incluir, no para ejecutar")
+    exit(-1)
+
 def tokenize(operaciones: str) -> list[str]:
     ultimo_index = 0
     ret = []

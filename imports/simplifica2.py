@@ -1,3 +1,7 @@
+if __name__ == "__main__":
+    print("Este archivo es para incluir, no para ejecutar")
+    exit(-1)
+
 def simplify(frac: tuple[int,int]) -> tuple[int,int]:
     retnum = frac[0]
     retden = frac[1]
