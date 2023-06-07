@@ -53,17 +53,33 @@ def parser(operaciones: list[str], frac=None) -> list:
                 ret.append(int(op))
     return ret
 
+def operand_prety_printer(op, simply):
+    if simply != None:
+        op = simply(op)
+        prt = str(op[0])
+        prt += '|'
+        prt += str(op[1])
+        prt.replace(' ','')
+        print(prt, end='')
+    else:
+        print(op, end='')
+
+def parsed_ops_prety_printer(p_ops, simply):
+    for o in p_ops:
+        if type(o) == str:
+            print(o, end='')
+        else:
+            operand_prety_printer(o, simply)
+
 def calc(parsed_ops: list, suma, resta, mult, div, simply=None):
     for i, op in enumerate(reversed(parsed_ops)):
         i = len(parsed_ops)-i-1
         match op:
             case '=':
                 res = calc(parsed_ops[:i], suma, resta, mult, div)
-                if simply != None:
-                    res = simply(res)
-                    print(res[0], "|", res[1])
-                else:
-                    print(res)
+                parsed_ops_prety_printer(parsed_ops, simply)
+                operand_prety_printer(res, simply);
+                print('\n')
                 return ' '
             case '/':
                 return div(calc(parsed_ops[:i], suma, resta, mult, div), calc(parsed_ops[(i+1):], suma, resta, mult, div))
