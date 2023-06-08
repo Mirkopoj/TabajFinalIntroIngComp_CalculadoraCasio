@@ -1,5 +1,6 @@
 if __name__ != "__main__":
     print("Este archivo es para ser ejecutado, no importado")
+    exit(-1)
 
 import sys
 sys.path.insert(0, 'imports')
