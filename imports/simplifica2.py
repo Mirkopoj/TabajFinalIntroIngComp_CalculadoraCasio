@@ -9,5 +9,4 @@ def simplify(frac: tuple[int,int]) -> tuple[int,int]:
         if retden%i==0 and retnum%i==0:
             retnum /= i
             retden /= i
-            i = i+1
     return (int(retnum), int(retden))
