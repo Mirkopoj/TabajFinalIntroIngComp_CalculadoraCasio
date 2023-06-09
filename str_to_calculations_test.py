@@ -104,5 +104,61 @@ class TestStrToCalc(unittest.TestCase):
         res = stc.parser(['1','='])
         self.assertEqual(res, [1,'=',' '])
 
+    def test_blanca_calc_1(self):
+        res = stc.calc(['='],
+                       fn.suma_clasica,
+                       fn.resta_clasica,
+                       fn.multiplicacion_clasica,
+                       fn.division_clasica)
+        self.assertEqual(res, ' ')
+
+    def test_blanca_calc_2_7(self):
+        res = stc.calc([4,'/',2],
+                       fn.suma_clasica,
+                       fn.resta_clasica,
+                       fn.multiplicacion_clasica,
+                       fn.division_clasica)
+        self.assertEqual(res, 2)
+
+    def test_blanca_calc_3_7(self):
+        res = stc.calc([4,'*',2],
+                       fn.suma_clasica,
+                       fn.resta_clasica,
+                       fn.multiplicacion_clasica,
+                       fn.division_clasica)
+        self.assertEqual(res, 8)
+
+    def test_blanca_calc_4_7(self):
+        res = stc.calc([4,'+',2],
+                       fn.suma_clasica,
+                       fn.resta_clasica,
+                       fn.multiplicacion_clasica,
+                       fn.division_clasica)
+        self.assertEqual(res, 6)
+
+    def test_blanca_calc_5_7(self):
+        res = stc.calc([4,'-',2],
+                       fn.suma_clasica,
+                       fn.resta_clasica,
+                       fn.multiplicacion_clasica,
+                       fn.division_clasica)
+        self.assertEqual(res, 2)
+
+    def test_blanca_calc_6(self):
+        res = stc.calc([4],
+                       fn.suma_clasica,
+                       fn.resta_clasica,
+                       fn.multiplicacion_clasica,
+                       fn.division_clasica)
+        self.assertEqual(res, 4)
+
+    def test_blanca_calc_7_8(self):
+        res = stc.calc([4,6],
+                       fn.suma_clasica,
+                       fn.resta_clasica,
+                       fn.multiplicacion_clasica,
+                       fn.division_clasica)
+        self.assertEqual(res, None)
+
 if __name__ == "__main__":
     unittest.main()
