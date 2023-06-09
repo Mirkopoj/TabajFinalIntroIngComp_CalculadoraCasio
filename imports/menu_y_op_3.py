@@ -40,7 +40,7 @@ def run():
             fraccion = None
             simplificar = None
             if select == '2':
-                print("Usted se ha movido  a la fraccionaria, ingrese la expresión: ") 
+                print("Usted se ha movido  a la fraccionaria, ingrese la expresión: ( a|b + c|d= ) ") 
                 suma = fn.suma_fraccionaria
                 resta = fn.resta_fraccionaria
                 multiplicacion = fn.multiplicacion_fraccionaria
@@ -48,7 +48,7 @@ def run():
                 fraccion = fn.hacer_fraccion
                 simplificar = sm.simplify
             else:
-                print("Usted ha ingresado a la calculadora clásica, ingrese la expresión: ") 
+                print("Usted ha ingresado a la calculadora clásica, ingrese la expresión: ( a+b= ) ") 
             comp = ""
             aux = 'a'
             while aux != ' ':

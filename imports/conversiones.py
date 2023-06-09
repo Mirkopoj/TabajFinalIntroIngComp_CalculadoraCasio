@@ -26,7 +26,7 @@ def conversiones(expresion: int) -> str:
             resultado = octal(num)
             band = False
         else:
-            print("Ingrese un número válido")
+            print("Ingrese un número válido (4 digitos como maximo)")
     return lista_a_str(resultado)
 
 #--------------------- BINARIO ---------------------------------------------------------
