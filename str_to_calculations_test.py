@@ -166,13 +166,20 @@ class CalcBlanca(unittest.TestCase):
 
 class TokenizerNegra(unittest.TestCase):
 
-    #def test_no_str(self):
-        #crash = False
-        #try:
-            #stc.tokenize(1)
-        #except:
-            #crash = True
-        #self.assertTrue(crash)
+    ##  tokenize(): ###
+    #
+    #   tokenize recibe un str y devuelve una list[str]
+    #   
+    #   Promete ahislar los caracteres especiales: 
+    #       +   -   *   /   |   =
+    #   dando como resultado una lista del tipo: 
+    #   ["izq", "especial", "mid", ... , "mid", "especial", "der"]
+    #   Cuando no hay nada antes, despues o entre medio de los 
+    #   caracteres especiales se espera un str vacio, "".
+    #   Por ejemplo, para "2+2=" se espera obtener
+    #   ["2", "+", "2", "=", ""]
+    #
+    ###################
 
     def test_sin_caracteres_especiales(self):
         res = stc.tokenize("abc123@!?\"%#")
@@ -209,6 +216,12 @@ class TokenizerNegra(unittest.TestCase):
     def test_solo_especiales(self):
         res = stc.tokenize("+-*/|=")
         self.assertEqual(res, ["","+","","-","","*","","/","","|","","=",""])
+
+class ParserNegra(unittest.TestCase):
+
+    def test_numero_solo(self):
+        res = stc.parser(["42"])
+        self.assertEqual(res, [42])
 
 if __name__ == "__main__":
     unittest.main()
