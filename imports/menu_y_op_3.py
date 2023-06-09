@@ -18,6 +18,10 @@ def run():
     expresion = 0
     boton = 1
 
+    print("Calculadora Casio")
+    print("Ingrese 0 para encender")
+    print()
+
 
     while boton != '0':
         print(" 0 -> ON ")
@@ -40,7 +44,10 @@ def run():
             fraccion = None
             simplificar = None
             if select == '2':
-                print("Usted se ha movido  a la fraccionaria, ingrese la expresión: ( a|b + c|d= ) ") 
+                print("Usted se ha movido  a la fraccionaria, ingrese una expresión")
+                print("del tipo [frac] [op] [frac] [op] ... [op] [frac] =") 
+                print("donde las fracciones de denotan a|b, siendo a y b numeros enteros")
+                print("y los operadores validos son +, -, * y /")
                 suma = fn.suma_fraccionaria
                 resta = fn.resta_fraccionaria
                 multiplicacion = fn.multiplicacion_fraccionaria
@@ -48,7 +55,10 @@ def run():
                 fraccion = fn.hacer_fraccion
                 simplificar = sm.simplify
             else:
-                print("Usted ha ingresado a la calculadora clásica, ingrese la expresión: ( a+b= ) ") 
+                print("Usted ha ingresado a la calculadora clásica, ingrese una expresión") 
+                print("del tipo [num] [op] [num] [op] ... [op] [num] =") 
+                print("donde los numeros deben ser enteros")
+                print("y los operadores validos son +, -, * y /")
             comp = ""
             aux = 'a'
             while aux != ' ':
@@ -69,7 +79,9 @@ def run():
                         continue
 
         elif select == '3': 
-            print("Usted ha ingresado a la calculadora de conversiones, ingrese la expresión: ") 
+            print("Usted ha ingresado a la calculadora de conversiones") 
+            print("ingrese el numero que desea convertir") 
+            print("debe ser un mnumero entero en base decimal, de hasta 4 digitos") 
             expresion = int(input("\n_"))
             #valida que sea una opcion valida
             while expresion < 0 or expresion > 9999:
