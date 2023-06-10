@@ -82,11 +82,18 @@ def run():
             print("Usted ha ingresado a la calculadora de conversiones") 
             print("ingrese el numero que desea convertir") 
             print("debe ser un mnumero entero en base decimal, de hasta 4 digitos") 
-            expresion = int(input("\n_"))
+            expresion = 10000
+            try:
+                expresion = int(input("\n_"))
+            except:
+                print("SintaxError")
             #valida que sea una opcion valida
             while expresion < 0 or expresion > 9999:
                 print("\nIngrese un numero valido ")
-                expresion = int(input("\n_"))
+                try:
+                    expresion = int(input("\n_"))
+                except:
+                    print("SintaxError")
 
             lista_convertido = con.conversiones(expresion)
             print(f"Conversión: {lista_convertido} ")
