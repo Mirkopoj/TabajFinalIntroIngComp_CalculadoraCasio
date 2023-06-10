@@ -72,6 +72,8 @@ def parsed_ops_prety_printer(p_ops, simply):
             operand_prety_printer(o, simply)
 
 def calc(parsed_ops: list, suma, resta, mult, div, simply=None):
+    if len(parsed_ops) == 1:
+        return parsed_ops[0]
     for i, op in enumerate(reversed(parsed_ops)):
         i = len(parsed_ops)-i-1
         match op:
@@ -101,10 +103,3 @@ def calc(parsed_ops: list, suma, resta, mult, div, simply=None):
         match op:
             case '*':
                 return mult(calc(parsed_ops[:i], suma, resta, mult, div), calc(parsed_ops[(i+1):], suma, resta, mult, div))
-    for i, op in enumerate(reversed(parsed_ops)):
-        i = len(parsed_ops)-i-1
-        match op:
-            case _ :
-                if len(parsed_ops) == 1:
-                    return op
-
