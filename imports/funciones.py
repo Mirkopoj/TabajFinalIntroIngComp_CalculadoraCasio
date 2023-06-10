@@ -22,7 +22,7 @@ def suma_fraccionaria(a: tuple[int,int],b: tuple[int,int]) -> tuple[int,int]:
     ret_den = a[1]*b[1]
 
     if ret_den == 0:
-        raise (Exception("SintaxError"))
+        raise (Exception("MathError"))
 
     return (ret_num, ret_den)
 
@@ -31,7 +31,7 @@ def resta_fraccionaria(a: tuple[int,int],b: tuple[int,int]) -> tuple[int,int]:
     ret_den = a[1]*b[1]
 
     if ret_den == 0:
-        raise (Exception("SintaxError"))
+        raise (Exception("MathError"))
 
     return (ret_num, ret_den)
 
@@ -40,7 +40,7 @@ def multiplicacion_fraccionaria(a: tuple[int,int],b: tuple[int,int]) -> tuple[in
     ret_den = a[1]*b[1]
 
     if ret_den == 0:
-        raise (Exception("SintaxError"))
+        raise (Exception("MathError"))
     
     return (ret_num, ret_den)
 
@@ -49,7 +49,7 @@ def division_fraccionaria(a: tuple[int,int],b: tuple[int,int]) -> tuple[int,int]
     ret_den = a[1]*b[0]
 
     if ret_den == 0:
-        raise (Exception("SintaxError"))
+        raise (Exception("MathError"))
 
     return (ret_num, ret_den)
 

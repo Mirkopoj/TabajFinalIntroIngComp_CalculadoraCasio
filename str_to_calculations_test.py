@@ -406,6 +406,13 @@ class CalcNegra(unittest.TestCase):
     #
     #       print("1*2+3/4-5=", -2.25)
     #
+    #   Los valores validos para calc son, str con los caracteres
+    #   resevados y los valores que sean validos para las funciones
+    #   de suma, resta, multiplicación y división que se entreguen.
+    #   En el caso de las funciones en el archivo funciones los 
+    #   valores validos son, int para las funciones clasicas y 
+    #   tuple[int,int] para las funciones fraccionarias.
+    #
     ###################
 
     def a(self):
