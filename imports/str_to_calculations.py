@@ -17,9 +17,11 @@ def tokenize(operaciones: str) -> list[str]:
 def parser(operaciones: list[str], frac=None) -> list:
     ret = []
     prev_frac = False
-    type_check = int
+    type_check = float
+    op_type = float
     if frac != None:
         type_check = tuple
+        op_type = int
     for i, op in enumerate(operaciones):
         if prev_frac:
             prev_frac = False
@@ -50,7 +52,7 @@ def parser(operaciones: list[str], frac=None) -> list:
             case '':
                 continue
             case _ :
-                ret.append(int(op))
+                ret.append(op_type(op))
     return ret
 
 def operand_prety_printer(op, simply):
